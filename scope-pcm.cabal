@@ -1,0 +1,37 @@
+Name:                scope-pcm
+
+Version:             0.1.0.0
+
+Synopsis:            Plotting of zoom-cache-pcm data
+
+-- A longer description of the package.
+-- Description:         
+
+License:             BSD3
+License-file:        LICENSE
+Author:              Conrad Parker
+Maintainer:          conrad@metadecks.org
+Category:            Sound
+
+Cabal-version:       >=1.8
+Build-type:          Simple
+
+flag splitBase
+  description: Use the split-up base package.
+
+Library
+  if flag(splitBase)
+    build-depends:
+      base >= 3 && < 6
+  else
+    build-depends:
+      base < 3
+
+  Build-Depends:
+    scope,
+    zoom-cache                >= 1.0.0.0 && < 1.1.0.0,
+    zoom-cache-pcm            >= 0.2.0.0 && < 0.3
+
+
+  Exposed-modules:
+    Scope.PCM
